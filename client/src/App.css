@@ -1,0 +1,26 @@
+.App {
+  min-height: 100vh;
+  padding: 40px 24px 0;
+}
+
+.page-title {
+  text-align: center;
+}
+
+.page-title h1 {
+  margin: 0;
+  color: #319bc4;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+  .App {
+    padding: 32px 16px 0;
+  }
+
+  .page-title h1 {
+    font-size: 32px;
+  }
+}

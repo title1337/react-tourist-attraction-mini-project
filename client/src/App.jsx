@@ -1,7 +1,12 @@
 import "./App.css";
+import Title from "./components/title";
 
 function App() {
-  return <div className="App">{/* Start coding here */}</div>;
+  return (
+    <main className="App">
+      <Title />
+    </main>
+  );
 }
 
 export default App;
