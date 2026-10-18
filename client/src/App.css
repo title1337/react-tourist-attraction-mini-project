@@ -15,6 +15,43 @@
   line-height: 1.4;
 }
 
+.search-area {
+  width: min(576px, 100%);
+  margin: 12px auto 30px;
+}
+
+.search-area label {
+  display: block;
+  margin-bottom: 4px;
+  color: #333;
+  font-size: 15px;
+}
+
+.search-area input {
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 0 8px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  background: transparent;
+  color: #333;
+  font: inherit;
+  font-size: 16px;
+  text-align: center;
+}
+
+.search-area input::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+.search-area input:focus {
+  border-bottom-color: #319bc4;
+  outline: none;
+}
+
 @media (max-width: 480px) {
   .App {
     padding: 32px 16px 0;
