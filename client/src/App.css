@@ -52,6 +52,111 @@
   outline: none;
 }
 
+.display-area {
+  display: grid;
+  width: min(720px, 100%);
+  gap: 52px;
+  margin: 0 auto 48px;
+}
+
+.trip-card {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  align-items: start;
+  gap: 30px;
+}
+
+.trip-card-cover {
+  width: 100%;
+  height: 250px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.trip-card-content {
+  min-width: 0;
+}
+
+.trip-card-title {
+  margin: 4px 0 8px;
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+.trip-card-title a {
+  color: #111;
+  text-decoration: none;
+}
+
+.trip-card-title a:hover {
+  color: #319bc4;
+  text-decoration: underline;
+}
+
+.trip-card-description {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0 0 14px;
+  color: #888;
+  font-size: 14px;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.trip-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.trip-card-tag {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #888;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.trip-card-tag:hover,
+.trip-card-tag:focus-visible {
+  color: #168fbe;
+}
+
+.trip-card-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.trip-card-thumbnail {
+  width: 96px;
+  height: 96px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.display-status,
+.display-error,
+.display-empty {
+  width: min(720px, 100%);
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+.display-status,
+.display-empty {
+  color: #888;
+}
+
+.display-error {
+  color: #b42318;
+}
+
 @media (max-width: 480px) {
   .App {
     padding: 32px 16px 0;
@@ -59,5 +164,27 @@
 
   .page-title h1 {
     font-size: 32px;
+  }
+
+  .trip-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .trip-card-cover {
+    height: 220px;
+  }
+
+  .display-area {
+    gap: 36px;
+  }
+
+  .trip-card-photos {
+    gap: 10px;
+  }
+
+  .trip-card-thumbnail {
+    width: min(28vw, 96px);
+    height: min(28vw, 96px);
   }
 }
