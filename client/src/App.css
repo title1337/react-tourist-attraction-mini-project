@@ -127,6 +127,13 @@
   color: #168fbe;
 }
 
+.trip-card-media-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 .trip-card-photos {
   display: flex;
   flex-wrap: wrap;
@@ -138,6 +145,48 @@
   height: 96px;
   border-radius: 14px;
   object-fit: cover;
+}
+
+.trip-card-share {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+
+.trip-card-share-button {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  place-items: center;
+  border: 1px solid #319bc4;
+  border-radius: 50%;
+  background: #fff;
+  color: #319bc4;
+  cursor: pointer;
+}
+
+.trip-card-share-button:hover,
+.trip-card-share-button:focus-visible {
+  background: #eaf7fb;
+  outline: 2px solid #319bc4;
+  outline-offset: 2px;
+}
+
+.trip-card-share-button svg {
+  width: 100%;
+  height: 100%;
+}
+
+.trip-card-share-status {
+  color: #27804a;
+  font-size: 11px;
+  text-align: center;
+}
+
+.trip-card-share-status.is-error {
+  color: #b42318;
 }
 
 .display-status,
@@ -181,6 +230,10 @@
 
   .trip-card-photos {
     gap: 10px;
+  }
+
+  .trip-card-media-row {
+    align-items: flex-start;
   }
 
   .trip-card-thumbnail {
