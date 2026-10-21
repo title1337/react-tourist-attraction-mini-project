@@ -1,7 +1,15 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Display({ trips, onTagClick }) {
   const [copyStatus, setCopyStatus] = useState({});
+  const copyStatusTimeouts = useRef({});
+
+  useEffect(
+    () => () => {
+      Object.values(copyStatusTimeouts.current).forEach(window.clearTimeout);
+    },
+    [],
+  );
 
   if (trips.length === 0) {
     return <p className="display-empty">ไม่พบสถานที่ท่องเที่ยวที่ตรงกับคำค้นหา</p>;
@@ -14,7 +22,18 @@ function Display({ trips, onTagClick }) {
         ...currentStatus,
         [trip.eid]: "คัดลอกลิงก์แล้ว",
       }));
+      window.clearTimeout(copyStatusTimeouts.current[trip.eid]);
+      copyStatusTimeouts.current[trip.eid] = window.setTimeout(() => {
+        setCopyStatus((currentStatus) => {
+          const remainingStatus = { ...currentStatus };
+          delete remainingStatus[trip.eid];
+          return remainingStatus;
+        });
+        delete copyStatusTimeouts.current[trip.eid];
+      }, 2000);
     } catch (error) {
+      window.clearTimeout(copyStatusTimeouts.current[trip.eid]);
+      delete copyStatusTimeouts.current[trip.eid];
       setCopyStatus((currentStatus) => ({
         ...currentStatus,
         [trip.eid]: "คัดลอกไม่สำเร็จ กรุณาลองอีกครั้ง",
